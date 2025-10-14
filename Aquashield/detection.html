@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Maritime Security AI System</title>
+<link rel="stylesheet" href="style4.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.21.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.2/dist/coco-ssd.min.js"></script>
+
+<!-- ✅ EmailJS client-side library -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-container">
+    <h1 class="logo">🌊 UNDERWATER MARITIME SECURITY</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./tech.html">Technology</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- BOX 1: Upload -->
+  <section class="upload-section">
+    <h2>Original Image</h2>
+    <input id="upload" type="file" accept="image/*" />
+    <button id="cameraBtn">Use Camera</button>
+    <video id="camera" autoplay playsinline style="display:none;"></video>
+    <button id="captureBtn" style="display:none;">Capture</button>
+    <img id="originalImg" alt="Original Image" />
+  </section>
+
+  <!-- BOX 2: Enhancement -->
+  <section class="result-section">
+    <h2>Enhanced Image & Metrics</h2>
+    <canvas id="enhancedCanvas"></canvas>
+    <div class="controls">
+      <button id="enhanceBtn">Enhance Image</button>
+      <button id="detectBtn">Detect Threats</button>
+    </div>
+    <canvas id="metricsChart"></canvas>
+    <div class="metrics">
+      <p>PSNR: <span id="psnr">-</span></p>
+      <p>SSIM: <span id="ssim">-</span></p>
+      <p>UIQM: <span id="uiqm">-</span></p>
+      <p>Processing Time: <span id="ptime">-</span> ms</p>
+    </div>
+  </section>
+
+  <!-- BOX 3: Threats -->
+  <section class="threat-section">
+    <h2>Detected Threats & Image</h2>
+    <canvas id="detectedCanvas"></canvas>
+    <ul id="threatList" class="threat-list"><li>No threats detected</li></ul>
+    <div class="controls">
+      <button id="downloadReportBtn">Download Report</button>
+      <button id="viewReportsBtn">View Reports</button>
+      <button id="sendEmailBtn">Send Threat Email</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <small>© Maritime AI — Static demo</small>
+</footer>
+
+<script src="script4.js"></script>
+</body>
+</html>
